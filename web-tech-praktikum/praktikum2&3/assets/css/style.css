@@ -6,11 +6,19 @@ h2,
 h3 {
   color: red;
 }
+body {
+  margin: 0;
+}
 /*a:visited {
   color: purple;
 }*/
 header {
-  
+  display: flex;
+  align-items: center;
+  /*background-color: rgb(50, 158, 240);*/
+}
+header h1{
+  padding-left: 10px;
 }
 nav a {
   box-sizing: border-box;
@@ -24,7 +32,12 @@ a:hover {
   color: white;
 }
 nav {
-  color: red;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  padding: 15px;
+  background-color: red;
+  display: block;
 }
 nav a {
   text-decoration: none;
