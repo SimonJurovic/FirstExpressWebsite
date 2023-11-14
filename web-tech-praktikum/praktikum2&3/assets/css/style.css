@@ -1,27 +1,29 @@
 h1 {
-    color:red;
-    font:bold;
+  color: red;
+  font: bold;
 }
-h2, h3 {
-    color:red;
+h2,
+h3 {
+  color: red;
 }
 a:visited {
-    color: purple;
+  color: purple;
 }
 a:link {
-    color: lightblue;
+  color: lightblue;
 }
-a:hover{    /*mauszeiger hower*/
-	background-color:darkblue;
-	color:white;
+a:hover {
+  /*mauszeiger hower*/
+  background-color: darkblue;
+  color: white;
 }
 nav {
-    background-color: lightblue;
-    color: red;
+  background-color: lightblue;
+  color: red;
 }
 nav a {
-    text-decoration: none;
+  text-decoration: none;
 }
 .bold {
-    font-weight: bold;
+  font-weight: bold;
 }
