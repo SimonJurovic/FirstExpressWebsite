@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Semesterplan erstellen</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+</head>
+<body>
+    <h1>Neuen Semesterplan erstellen Schritt 2</h1>
+   <form method="post" action="https://labs.inf.fh-dortmund.de/planService/testCreatePlan.php"> 
+    <p>
+        <label>Name:
+            <input name="name" type="text" required placeholder="Theodor-Maximialian" 
+                pattern="[A-Za-z0-9\-]+" maxlength="150">
+        </label>
+    </p>
+
+    <p>
+        <label>Semster:
+            <select name="semester" required size="2">
+                <option value="Sommersemester" selected>Sommersemtser</option>
+                <option value="Wintersemester">Wintersemseter</option>
+            </select>
+        </label>
+    </p>
+
+    <p>
+        <label> Jahr
+            <input name="jahr" type="number" min="1900" max="2099" value="2022" required>
+        </label>
+    </p>
+
+    <p>
+        <label>Kurse
+            <select name="kurse" multiple  required size="3">
+                <option value="WEB-TECHNOLOGIEN">WEB-TECHNOLOGIEN</option>
+                <option value="PK2">PK2</option>
+                <option value="Mathe4">Mathe4</option>
+            </select>
+        </label>
+    </p>
+
+    <p>
+        <input type="submit">
+    </p>
+   </form>
+</body>
+</html>
