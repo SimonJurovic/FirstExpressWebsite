@@ -4,64 +4,74 @@
     <meta charset="UTF-8" />
     <title>Semesterplan erstellen</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/form.css">
   </head>
   <body>
     <h1>Neuen Semesterplan erstellen Schritt 2</h1>
     <form
+      class="formsection2"
       method="post"
       action="https://labs.inf.fh-dortmund.de/planService/testCreatePlan.php"
     >
       <p>
-        <label
-          >Name:
-          <input
-            name="name"
-            type="text"
-            required
-            placeholder="Theodor-Maximialian"
-            pattern="[A-Za-z0-9\-]+"
-            maxlength="150"
-          />
-        </label>
+        <fieldset>
+          <label class="required">
+            Name:
+            <input 
+              name="name"
+              type="text"
+              placeholder="Theodor-Maximialian"
+              pattern="[A-Za-z0-9\-]+"
+              maxlength="150"
+              required
+            />
+            
+          </label> 
+          <legend>Basisdaten</legend>
+        </fieldset>
       </p>
 
       <p>
-        <label
-          >Semster:
-          <select name="semester" required size="2">
-            <option value="Sommersemester" selected>Sommersemtser</option>
-            <option value="Wintersemester">Wintersemseter</option>
-          </select>
-        </label>
+        <fieldset>
+          <label>
+            Sommersemester<input class="SemsterSelect" name="semester" value="Sommersemester" type="radio" checked> 
+            Wintersemester<input type="radio" class="SemsterSelect" name="semester" value="Wintersemester" > 
+          </label>
+          <br>
+          <label class="required">
+            Jahr
+            <input
+              name="jahr"
+              type="number"
+              min="1900"
+              max="2099"
+              value="2022"
+              required
+            />
+          </label>
+          <legend>Semester</legend>
+        </fieldset>
       </p>
 
       <p>
-        <label>
-          Jahr
-          <input
-            name="jahr"
-            type="number"
-            min="1900"
-            max="2099"
-            value="2022"
-            required
-          />
-        </label>
+        <fieldset>
+          <label>
+            <input type="checkbox" class="SemsterSelect" name="kurse" value="WEB-TECHNOLOGIEN"> Web-Tech <br>
+            <input type="checkbox" class="SemsterSelect" name="kurse" value="PK2"> PK 2 <br>
+            <input type="checkbox" class="SemsterSelect" name="kurse" value="Mathe4"> Mathe 4 <br>
+
+            <!--<select name="kurse" multiple required size="3">
+              <option value="WEB-TECHNOLOGIEN">WEB-TECHNOLOGIEN</option>
+              <option value="PK2">PK2</option>
+              <option value="Mathe4">Mathe4</option>
+            </select>-->
+          </label>
+          <legend>Kurse</legend>
+        </fieldset>
       </p>
 
       <p>
-        <label
-          >Kurse
-          <select name="kurse" multiple required size="3">
-            <option value="WEB-TECHNOLOGIEN">WEB-TECHNOLOGIEN</option>
-            <option value="PK2">PK2</option>
-            <option value="Mathe4">Mathe4</option>
-          </select>
-        </label>
-      </p>
-
-      <p>
-        <input type="submit" />
+        <input class="SubmitButton" type="submit" />
       </p>
     </form>
   </body>
