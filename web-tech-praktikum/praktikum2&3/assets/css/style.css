@@ -35,19 +35,28 @@ nav {
   position: sticky;
   width: 100%;
   top: 0;
-  padding: 15px;
+  padding: 15px 0;
   background-color: red;
   display: block;
+  border-radius: 5px;
 }
 nav a {
+  display: flex;
+  display: inline;
   text-decoration: none;
+  flex-wrap: wrap;
+}
+section {
+  border: black solid 5px;
+  border-radius: 10px;
 }
 .bold {
   font-weight: bold;
 }
-#Zusatzinformationen {
+aside {
   background-color: orange;
   color: black;
+  border-radius: 15px;
 }
 fieldset {
   border-radius: 15px;

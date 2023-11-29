@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Plan</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/grid.css" />
   </head>
   <body>
     <header>
@@ -35,13 +36,15 @@
       </section>
 
       <section title="Gewählte Kurse">
-        <fieldset>
-          <table>
+        <table>
+          <thead>
             <tr>
               <th>Name</th>
               <th>Wochentag</th>
               <th>Stunden im Stundenplan</th>
             </tr>
+          </thead>
+          <tbody>
             <tr>
               <td><a href="kurs.html">Webtechnologien</a></td>
               <td>Montag</td>
@@ -62,12 +65,15 @@
               <td>Montag</td>
               <td>5.-6. Stunde</td>
             </tr>
-          </table>
-          <legend><h3>Gewählte Kurse</h3></legend>
-        </fieldset>
+          </tbody>
+        </table>
       </section>
     </main>
-
+    <aside>
+      <h3>Aktuelle Meldungen</h3>
+      <p>Es gibt neue Kurse</p>
+      <p>Neuigkeiten WUHU</p>
+    </aside>
     <footer>&copy; Perry the Platapus</footer>
   </body>
 </html>

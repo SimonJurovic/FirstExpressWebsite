@@ -1,0 +1,22 @@
+header {
+    grid-area: kopf;
+}
+nav {
+    grid-area: nav;
+}
+main {
+    grid-area: main;
+}
+aside {
+    grid-area: seite;
+}
+footer {
+    grid-area: fuß;
+}
+body{
+    display: grid;
+    grid-template-areas:    "kopf kopf"
+                            "nav nav"
+                            "main seite"
+                            "fuß fuß";
+}
