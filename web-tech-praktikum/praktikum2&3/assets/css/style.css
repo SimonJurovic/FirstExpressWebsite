@@ -22,7 +22,7 @@ header h1 {
 }
 nav a {
   box-sizing: border-box;
-  background-color: rgb(50, 158, 240);
+  background-color: rgb(58, 131, 156);
   color: white;
   border-radius: 3px;
 }
@@ -36,7 +36,7 @@ nav {
   width: 100%;
   top: 0;
   padding: 15px 0;
-  background-color: red;
+  background-color: #ff6961;
   display: block;
   border-radius: 5px;
 }
