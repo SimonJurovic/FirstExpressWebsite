@@ -37,7 +37,7 @@ nav {
   top: 0;
   padding: 15px 0;
   background-color: #ff6961;
-  display: block;
+  display: inline;
   border-radius: 5px;
 }
 nav a {

@@ -1,22 +1,83 @@
 header {
-    grid-area: kopf;
+  grid-area: kopf;
 }
 nav {
-    grid-area: nav;
+  grid-area: nav;
 }
 main {
-    grid-area: main;
+  grid-area: main;
 }
 aside {
-    grid-area: seite;
+  grid-area: seite;
 }
 footer {
-    grid-area: fuß;
+  grid-area: fuß;
 }
-body{
-    display: grid;
-    grid-template-areas:    "kopf kopf"
-                            "nav nav"
-                            "main seite"
-                            "fuß fuß";
+body {
+  display: grid;
+  grid-template-areas:
+    "kopf nav"
+    "main seite"
+    "fuß fuß";
+}
+@media screen and (min-width: 1025px) {
+  nav header {
+    display: inline;
+  }
+  body {
+    grid-template-areas:
+      "kopf nav"
+      "main seite"
+      "fuß fuß";
+  }
+}
+@media screen and (max-width: 1024px) {
+  body {
+    grid-template-areas:
+      "kopf kopf"
+      "nav nav"
+      "main seite"
+      "fuß fuß";
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    grid-template-areas:
+      "kopf"
+      "nav"
+      "main "
+      "seite"
+      "fuß ";
+  }
+  header h1 {
+    font-size: 25px;
+  }
+  header img {
+    height: 60px;
+    width: 60px;
+  }
+}
+@media screen and (max-width: 480px) {
+  body {
+    grid-template-areas:
+      "kopf"
+      "nav"
+      "main"
+      "fuß";
+  }
+  nav a {
+    display: block;
+    margin: 3px 0;
+  }
+  header h1 {
+    font-size: 20px;
+  }
+  aside {
+    display: none;
+  }
+  header img {
+    height: 40px;
+    width: 40px;
+  }
 }

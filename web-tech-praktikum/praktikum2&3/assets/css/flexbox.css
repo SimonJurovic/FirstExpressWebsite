@@ -1,10 +1,61 @@
 .flexbox {
-    display: flex;
-    
+  display: flex;
 }
 main {
-    flex: 1 0 auto;
+  flex: 15 1 auto;
 }
-nav {
+aside {
+  flex: 1 1 auto;
+}
+
+.Kopfbereichflexbox {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (min-width: 1025px) {
+  nav header {
     flex: 1 0 auto;
+    display: inline;
+    flex-direction: row;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .Kopfbereichflexbox {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .flexbox {
+    flex-direction: column;
+  }
+  main,
+  aside {
+    flex-basis: auto;
+    width: 100%;
+  }
+  header h1 {
+    font-size: 25px;
+  }
+  header img {
+    width: 25%;
+    height: 25%;
+  }
+}
+@media screen and (max-width: 480px) {
+  nav a {
+    display: block;
+    margin: 3px 0;
+  }
+  aside {
+    display: none;
+  }
+  header h1 {
+    font-size: 20px;
+  }
+  header img {
+    width: 20%;
+    height: 20%;
+  }
 }

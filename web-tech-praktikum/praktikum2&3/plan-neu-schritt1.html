@@ -18,40 +18,50 @@
       <h1>Neuen Semesterplan erstellen Schritt 1</h1>
     </header>
     <main>
-      <form action="plan-neu-schritt2.html" method="GET">
-        <label>
-          Studiengangwahl
-          <select name="Studiengang" id="Studiengang">
-            <option value="Praktische Informatik" selected>
-              Praktische Informatik
-            </option>
-            <option value="Technische Informatik">Technische Informatik</option>
-            <option value="Data Science">Data Science</option>
-            <option value="Medizinische Informatik">
-              Medizinische Informatik
-            </option>
-            <option value="Medizinische Informatik dual">
-              Medizinische Informatik dual
-            </option>
-            <option value="SST dual (Softwaretechnik)">
-              SST dual (Softwaretechnik)
-            </option>
-            <option value="SST dual (Systemtechnik)">
-              SST dual (Systemtechnik)
-            </option>
-            <option value="Informatik dual (Softwaretechnik)">
-              Informatik dual (Softwaretechnik)
-            </option>
-            <option value="Informatik dual (Netztechnik und Systemintegration)">
-              Informatik dual (Netztechnik und Systemintegration)
-            </option>
-            <option value="Wirtschaftsinformatik">Wirtschaftsinformatik</option>
-          </select>
-        </label>
-        <br />
-        <input type="submit" value="Weiter" />
-      </form>
+      <fieldset>
+        <form action="plan-neu-schritt2.html" method="GET">
+          <label>
+            Studiengangwahl
+            <select name="Studiengang" id="Studiengang">
+              <option value="Praktische Informatik" selected>
+                Praktische Informatik
+              </option>
+              <option value="Technische Informatik">
+                Technische Informatik
+              </option>
+              <option value="Data Science">Data Science</option>
+              <option value="Medizinische Informatik">
+                Medizinische Informatik
+              </option>
+              <option value="Medizinische Informatik dual">
+                Medizinische Informatik dual
+              </option>
+              <option value="SST dual (Softwaretechnik)">
+                SST dual (Softwaretechnik)
+              </option>
+              <option value="SST dual (Systemtechnik)">
+                SST dual (Systemtechnik)
+              </option>
+              <option value="Informatik dual (Softwaretechnik)">
+                Informatik dual (Softwaretechnik)
+              </option>
+              <option
+                value="Informatik dual (Netztechnik und Systemintegration)"
+              >
+                Informatik dual (Netztechnik und Systemintegration)
+              </option>
+              <option value="Wirtschaftsinformatik">
+                Wirtschaftsinformatik
+              </option>
+            </select>
+          </label>
+          <br />
+          <input type="submit" value="Weiter" />
+        </form>
+        <legend>Studiengangwahl</legend>
+      </fieldset>
     </main>
+
     <aside>
       <h3>Aktuelle Meldungen</h3>
       <p>Es gibt neue Kurse</p>
