@@ -26,9 +26,17 @@ body {
   }
   body {
     grid-template-areas:
-      "kopf nav" 
-      "main seite"
-      "fuß fuß";
+      "kopf nav nav nav" 
+      "main main  main seite"
+      "fuß fuß fuß fuß";
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    height: 10%;
+  }
+  nav a{
+    margin-right: 6px;
   }
 }
 @media screen and (max-width: 1024px) {
