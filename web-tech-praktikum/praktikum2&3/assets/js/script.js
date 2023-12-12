@@ -2,6 +2,7 @@ const getViewportWidth = () => window.innerWidth || document.documentElement.cli
 
  console.log(`Die Viewport-Breite beträgt: ${getViewportWidth()} Pixel.`);
 
+let counter=0;
 class Lehrperson {
     constructor(id,nachname){
         this.id=id,
@@ -46,6 +47,7 @@ class Studiengang {
     }
     addKurs(kurs){
         this.kurse.push(kurs);
+        this.kurse.sort((a,b)=> a.modulid<b.modulid ? -1 : 1)
     }
     getKursById(id){
         for(let element of this.kurse){
@@ -55,33 +57,48 @@ class Studiengang {
         }
         return "Kurs nicht gefunden, du bist ein Versager"
     }
+    toString(){
+        let ergebnis = `${this.name} (${this.id}):\n`
+        for(let element of this.kurse){
+            ergebnis += `\t ${element.modulid}: ${element.name}\n`
+        }
+        return ergebnis;
+    }
 };
 
 class Semesterplan {
-    constructor(id,name,semester,studiengang) {
-        this.id=id,
+    constructor(name,semester,studiengang) {
+        this.id=counter++,
         this.name=name,
         this.semester=semester,
         this.studiengang=studiengang ,
         this.kurse =[];  
     }
     addKurse(kurse){
-        this.kurse = kurse;
-    }
+        this.kurse = this.kurse.concat(kurse);
+        this.kurse.sort((a,b)=> a.modulid<b.modulid ? -1 : 1)
+    };
     getAnzahlKurse(){
         if(this.kurse.length!=0){
             return this.kurse.length;
         }
         return "Es wurden noch keine Kurse hinzugefügt"
-    }
+    };
     getAnzahlStunden(){
         let ergebnis=0;
         for(let element of this.kurse){
-            ergebnis+= element.termin.dauer;
+            ergebnis += element.termin.dauer;
         }
         return `Alle Stunden zusammengezählt: ${ergebnis}`;
 
-    }
+    };
+    toString(){
+        let ergebnis = `${this.name} (${this.semester}):\n` 
+        for(let element of this.kurse){
+            ergebnis += `\t ${element.modulid}: ${element.name} \n`
+        }
+        return ergebnis;
+    };
 } 
 
 let jojo= new Lehrperson(10,"joergens");
@@ -90,17 +107,18 @@ let tete= new Termin(900,120,"montag","AE.01");
 let studiengang1 = new Studiengang("WIPB","Wirtschaftsinformatik");
 let studiengang2 = new Studiengang("PI","Praktische Informatik")
 
-
-
-let Kurs1 = new Kurs(1,"webtech","V",studiengang1, 3,jojo,tete);
+let kurs1 = new Kurs(1,"webtech","V",studiengang1, 3,jojo,tete);
 let kurs2 = new Kurs(2,"mathe","V",studiengang2,3, jojo,tete);
 let kurs3 = new Kurs(3,"physik","V",studiengang2,3,jojo,tete);
 
-studiengang1.addKurs(Kurs1);
+studiengang1.addKurs(kurs3);
+studiengang1.addKurs(kurs2);
+studiengang1.addKurs(kurs1);
 
-let Semesterplan1= new Semesterplan(30,"meiner",3,"praktisch");
-Semesterplan1.addKurse([Kurs1,kurs2,kurs3]);
+let Semesterplan1= new Semesterplan("Mein Plan","WS23/24","praktisch");
+Semesterplan1.addKurse([kurs3,kurs1,kurs2]);
 
 console.log(Semesterplan1.getAnzahlStunden());
-console.log(Kurs1.id);
-console.log(studiengang1.getKursById("1-montag-900-AE.01"));
+console.log(Semesterplan1.toString());
+console.log(studiengang1.toString());
+//console.log(studiengang1.getKursById("1-montag-900-AE.01"));
