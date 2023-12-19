@@ -37,7 +37,6 @@ nav {
   top: 0;
   padding: 15px 0;
   background-color: #ff6961;
-  display: inline;
   border-radius: 5px;
 }
 nav a {
@@ -45,6 +44,7 @@ nav a {
   display: inline;
   text-decoration: none;
   flex-wrap: wrap;
+  margin: 3px;
 }
 section {
   border: black solid 5px;

@@ -12,6 +12,9 @@ aside {
   display: flex;
   align-items: center;
 }
+nav {
+  display: flex;
+}
 
 @media screen and (min-width: 1025px) {
   nav header {
@@ -44,8 +47,8 @@ aside {
   }
 }
 @media screen and (max-width: 480px) {
-  nav a {
-    display: block;
+  nav {
+    flex-direction: column;
     margin: 3px 0;
   }
   aside {
