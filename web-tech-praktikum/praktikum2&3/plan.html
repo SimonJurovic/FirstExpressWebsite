@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Plan</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/grid.css" />
   </head>
   <body>
     <header>
@@ -22,26 +23,28 @@
       <a href="kurs.html">Kursübersicht</a>
       <a href="plan-neu-schritt1.html">Semesterplan Erstellung</a>
     </nav>
+
     <main>
       <section title="Informationen zum Semester">
-        <fieldset>
-          <ul>
-            <li>Name meines Semesterplans</li>
-            <li>Studiengang: Wirtschaftinformatik</li>
-            <li>Semester: WiSe 23</li>
-          </ul>
-          <legend><h3>Informationen zum Semester</h3></legend>
-        </fieldset>
+        <h3>Informationen zum Semester</h3>
+        <ul>
+          <li>Name meines Semesterplans</li>
+          <li>Studiengang: Wirtschaftinformatik</li>
+          <li>Semester: WiSe 23</li>
+        </ul>
       </section>
 
       <section title="Gewählte Kurse">
-        <fieldset>
-          <table>
+        <h3>Gewählte Kurse</h3>
+        <table>
+          <thead>
             <tr>
               <th>Name</th>
               <th>Wochentag</th>
               <th>Stunden im Stundenplan</th>
             </tr>
+          </thead>
+          <tbody>
             <tr>
               <td><a href="kurs.html">Webtechnologien</a></td>
               <td>Montag</td>
@@ -62,11 +65,15 @@
               <td>Montag</td>
               <td>5.-6. Stunde</td>
             </tr>
-          </table>
-          <legend><h3>Gewählte Kurse</h3></legend>
-        </fieldset>
+          </tbody>
+        </table>
       </section>
     </main>
+    <aside>
+      <h3>Aktuelle Meldungen</h3>
+      <p>Es gibt neue Kurse</p>
+      <p>Neuigkeiten WUHU</p>
+    </aside>
 
     <footer>&copy; Perry the Platapus</footer>
   </body>

@@ -3,49 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <title>Study Planner</title>
+    <link rel="stylesheet" href="./assets/css/flexbox.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="assets/js/script.js"></script>
+    <!-- <script src="assets/js/index.js"></script> -->
   </head>
 
   <body>
-    <header>
-      <img
-        src="assets/Download.png"
-        height="100"
-        width="100"
-        alt="Bayern logo"
-      />
-      <h1>Study Planner</h1>
-    </header>
+    <div class="Kopfbereichflexbox">
+      <header>
+        <img
+          src="assets/Download.png"
+          height="100"
+          width="100"
+          alt="Bayern logo"
+        />
+        <h1>Study Planner</h1>
+      </header>
 
-    <nav>
-      <a href="index.html">Startseite</a>
-      <a href="plan.html">Stundenplan</a>
-      <a href="kurs.html">Kursübersicht</a>
-      <a href="plan-neu-schritt1.html">Semesterplan Erstellung</a>
-    </nav>
+      <nav>
+        <a href="index.html">Startseite</a>
+        <a href="plan.html">Stundenplan</a>
+        <a href="kurs.html">Kursübersicht</a>
+        <a href="plan-neu-schritt1.html">Semesterplan Erstellung</a>
+      </nav>
+    </div>
 
-    <main>
-      <fieldset>
-        <ul>
-          <li><a href="plan.html">WI-Plan (4 Kurse, 7 Stunden)</a></li>
-          <li><a href="plan.html">WI-Plan (5 Kurse, 10 Stunden)</a></li>
-          <li><a href="plan.html">WI-Plan (10 Kurse, 8 Stunden)</a></li>
-          <li><a href="plan.html">WI-Plan (5 Kurse, 20 Stunden)</a></li>
-        </ul>
-        <legend>Kurswahl</legend>
-      </fieldset>
-    </main>
+    <div class="flexbox">
+      <main>
+        <section>
+          <h2>Meine Semesterpläne</h2>
+          <label for="DropdownPlaene">Pläne gruppieren nach</label>
+          <select id="DropdownPlaene">
+            <option value="semester">Semester</option>
+            <option value="studiengang">studiengang</option>
+          </select>
+        </section>
+        <section id="dynamicSection">
+          <h2>WS23/24</h2>
+          <ul>
+            <li><a href="plan.html">WI-Plan (4 Kurse, 7 Stunden)</a></li>
+            <li><a href="plan.html">WI-Plan (5 Kurse, 10 Stunden)</a></li>
+            <li><a href="plan.html">WI-Plan (10 Kurse, 8 Stunden)</a></li>
+            <li><a href="plan.html">WI-Plan (5 Kurse, 20 Stunden)</a></li>
+          </ul>
+        </section>
+      </main>
 
-    <fieldset id="Zusatzinformationen">
-      <h3>Aktuelle Meldungen</h3>
-      <p>Es gibt neue Kurse</p>
-      <p>Neuigkeiten WUHU</p>
-      <legend>Zusatzinformationen</legend>
-    </fieldset>
-
+      <aside>
+        <h3>Aktuelle Meldungen</h3>
+        <p>Es gibt neue Kurse</p>
+        <p>Neuigkeiten WUHU</p>
+      </aside>
+    </div>
     <footer>&copy; Perry the Platapus</footer>
     <p>1</p>
-    <p></p>
+    <p>1</p>
     <p>1</p>
     <p>1</p>
     <p>1</p>
@@ -60,5 +73,6 @@
     <p>1</p>
     <p>1</p>
     <p>2</p>
+    <script src="assets/js/index.js"></script>
   </body>
 </html>

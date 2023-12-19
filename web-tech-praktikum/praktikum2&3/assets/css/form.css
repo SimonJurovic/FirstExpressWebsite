@@ -1,44 +1,43 @@
-form.formsection2{
-    background-color: yellow;
-    border: 5px solid black;
-    border-radius: 15px;
-    display: block;
-    padding-inline: 5px;
+form.formsection2 {
+  background-color: yellow;
+  border: 5px solid black;
+  border-radius: 15px;
+  display: block;
+  padding-inline: 5px;
 }
 
-.required::after{
-    content: " *(erforderlich)";
+.required::after {
+  content: " *(erforderlich)";
 }
-input{
-    border-bottom: none;
-    border-right: none;
+input {
+  border-bottom: none;
+  border-right: none;
 }
-input:valid{
-    border-color: green;
-}input:invalid{
-    border-color: red;
-    background-color: red;
+input:valid {
+  border-color: green;
+  border-width: 3px;
 }
-input::selection{
-    box-shadow: 1pt;
+input:invalid {
+  border-color: red;
+  border-width: 3px;
+  /* background-color: rgb(188, 145, 145); */
 }
-
-.SubmitButton{
-    height: 30px;
-    width: 150px;
-    border-radius: 10px;
-    background-color: black;
-    color:yellow;
+.SubmitButton {
+  height: 30px;
+  width: 150px;
+  border-radius: 10px;
+  background-color: black;
+  color: yellow;
 }
 
 fieldset {
-    border-radius: 15px;
-    border: 5px solid black;
+  border-radius: 15px;
+  border: 5px solid black;
 }
-legend{
-    border-radius: 10px;
-    border: 5px solid black;
-    background-color: black;
-    color: yellow;
-    text-transform: uppercase;
+legend {
+  border-radius: 10px;
+  border: 5px solid black;
+  background-color: black;
+  color: yellow;
+  text-transform: uppercase;
 }

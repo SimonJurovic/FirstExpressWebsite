@@ -22,7 +22,7 @@ header h1 {
 }
 nav a {
   box-sizing: border-box;
-  background-color: rgb(50, 158, 240);
+  background-color: rgb(58, 131, 156);
   color: white;
   border-radius: 3px;
 }
@@ -35,19 +35,28 @@ nav {
   position: sticky;
   width: 100%;
   top: 0;
-  padding: 15px;
-  background-color: red;
-  display: block;
+  padding: 15px 0;
+  background-color: #ff6961;
+  display: inline;
+  border-radius: 5px;
 }
 nav a {
+  display: flex;
+  display: inline;
   text-decoration: none;
+  flex-wrap: wrap;
+}
+section {
+  border: black solid 5px;
+  border-radius: 10px;
 }
 .bold {
   font-weight: bold;
 }
-#Zusatzinformationen {
+aside {
   background-color: orange;
   color: black;
+  border-radius: 15px;
 }
 fieldset {
   border-radius: 15px;
@@ -62,8 +71,11 @@ fieldset p {
 th {
   background-color: rgb(222, 44, 44);
 }
-td {
+tr:nth-child(even) {
   background-color: rgb(143, 194, 233);
+}
+tr:nth-child(odd) {
+  background-color: rgb(26, 151, 109);
 }
 table {
   border-collapse: collapse;
