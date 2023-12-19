@@ -113,7 +113,7 @@ studiengang1.addKurs(kurs2);
 studiengang1.addKurs(kurs1);
 
 let Semesterplan1 = new Semesterplan("Mein Plan", "WS23/24", "praktisch");
-let Semesterplan2 = new Semesterplan("Mein Plan2", "SO 24", "praktisch");
+let Semesterplan2 = new Semesterplan("Mein Plan2", "SO 24", "theoretisch");
 let Semesterplan3 = new Semesterplan("Mein Plan3", "WS24/25", "praktisch");
 Semesterplan1.addKurse([kurs3, kurs1, kurs2]);
 Semesterplan2.addKurse([kurs3, kurs1, kurs2]);
