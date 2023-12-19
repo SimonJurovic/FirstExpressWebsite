@@ -15,28 +15,27 @@ footer {
 }
 body {
   display: grid;
-  grid-template-areas:
-    "kopf nav"
-    "main seite"
-    "fuß fuß";
 }
 @media screen and (min-width: 1025px) {
-  nav header {
-    display: inline;
-  }
   body {
     grid-template-areas:
       "kopf nav nav nav" 
       "main main  main seite"
       "fuß fuß fuß fuß";
+    
   }
-  nav {
-    display: flex;
+  header{
     align-items: center;
-    height: 10%;
+  }
+  body nav{
+    display: flex;
   }
   nav a{
     margin-right: 6px;
+    
+  }
+  nav {
+    align-self: center;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -47,6 +46,7 @@ body {
       "main seite"
       "fuß fuß";
   }
+  
 }
 
 @media screen and (max-width: 768px) {
