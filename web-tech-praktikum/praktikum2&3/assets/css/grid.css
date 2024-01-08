@@ -3,6 +3,7 @@ header {
 }
 nav {
   grid-area: nav;
+  
 }
 main {
   grid-area: main;
@@ -15,6 +16,9 @@ footer {
 }
 body {
   display: grid;
+}
+header {
+  background-color: rgb(228, 46, 46);
 }
 @media screen and (min-width: 1025px) {
   body {

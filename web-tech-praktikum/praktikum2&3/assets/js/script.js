@@ -123,3 +123,5 @@ console.log(Semesterplan1.getAnzahlStunden());
 console.log(Semesterplan1.toString());
 console.log(studiengang1.toString());
 //console.log(studiengang1.getKursById("1-montag-900-AE.01"));
+
+//document.getElementById("aside").setAttribute("title", "aside");

@@ -1,5 +1,5 @@
 h1 {
-  color: red;
+  color: white;
   font: bold;
 }
 h2,
@@ -12,17 +12,17 @@ body {
 /*a:visited {
   color: purple;
 }*/
+
 header {
   display: flex;
   align-items: center;
-  /*background-color: rgb(50, 158, 240);*/
 }
 header h1 {
   padding-left: 10px;
 }
 nav a {
   box-sizing: border-box;
-  background-color: rgb(58, 131, 156);
+/*background-color: rgb(58, 131, 156); */
   color: white;
   border-radius: 3px;
 }

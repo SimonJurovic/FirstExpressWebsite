@@ -21,7 +21,7 @@
         <h1>Study Planner</h1>
       </header>
 
-      <nav>
+      <nav title="Navigationsbereich">
         <a href="index.html">Startseite</a>
         <a href="plan.html">Stundenplan</a>
         <a href="kurs.html">Kursübersicht</a>
@@ -31,7 +31,7 @@
 
     <div class="flexbox">
       <main>
-        <section>
+        <section title="Semesteransichtwahl">
           <h2>Meine Semesterpläne</h2>
           <label for="DropdownPlaene">Pläne gruppieren nach</label>
           <select id="DropdownPlaene" required>
@@ -39,18 +39,12 @@
             <option value="studiengang">studiengang</option>
           </select>
         </section>
-        <section id="dynamicSection">
-          <!-- <h2>WS23/24</h2>
-          <ul>
-            <li><a href="plan.html">WI-Plan (4 Kurse, 7 Stunden)</a></li>
-            <li><a href="plan.html">WI-Plan (5 Kurse, 10 Stunden)</a></li>
-            <li><a href="plan.html">WI-Plan (10 Kurse, 8 Stunden)</a></li>
-            <li><a href="plan.html">WI-Plan (5 Kurse, 20 Stunden)</a></li>
-          </ul> -->
+        <section id="dynamicSection" title="Semesterpläne">
+          <!-- Die Section wird vom Select bestimmmt -->
         </section>
       </main>
 
-      <aside>
+      <aside id="aside">
         <h3>Aktuelle Meldungen</h3>
         <p>Es gibt neue Kurse</p>
         <p>Neuigkeiten WUHU</p>

@@ -11,6 +11,7 @@ aside {
 .Kopfbereichflexbox {
   display: flex;
   align-items: center;
+  background-color: rgb(228, 46, 46);
 }
 nav {
   display: flex;
@@ -42,8 +43,8 @@ nav {
     font-size: 25px;
   }
   header img {
-    width: 25%;
-    height: 25%;
+    width: 10%;
+    height: 10%;
   }
 }
 @media screen and (max-width: 480px) {
