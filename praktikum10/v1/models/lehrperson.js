@@ -4,6 +4,4 @@ class Lehrperson {
     }
 }
 
-module.exports = {
-    Lehrperson: Lehrperson
-}
+module.exports = Lehrperson;

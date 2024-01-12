@@ -7,6 +7,4 @@ class Termin {
     }
 }
 
-module.exports = {
-    Termin: Termin
-}
+module.exports = Termin;

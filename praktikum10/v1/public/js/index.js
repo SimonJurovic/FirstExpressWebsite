@@ -34,10 +34,8 @@ sortierungAusgeben("semester");
 
 ddbtn.addEventListener("change", function () {
   if (ddbtn.value === "semester") {
-    
     document.getElementById("dynamicSection").innerHTML = "";
     sortierungAusgeben("semester");
-    console.log(sortierungAusgeben("semester"));
   } else {
     document.getElementById("dynamicSection").innerHTML = "";
     sortierungAusgeben("studiengang");

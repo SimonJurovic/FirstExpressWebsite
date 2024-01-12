@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Study Planner</title>
+    <link rel="stylesheet" href="/css/flexbox.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <div class="Kopfbereichflexbox">
+    <%- include('header.ejs') %>
+    <%- include('nav.ejs') %>
+    </div>
+    <div class="flexbox">
+      <main>
+        <section title="Semesteransichtwahl">
+          <h2>Meine Semesterpläne</h2>
+          <form action="/index" method="get">
+            <label for="DropdownPlaene">Pläne gruppieren nach</label>
+            <select id="DropdownPlaene" name="gruppierung" required>
+              <option value="semester" selected>Semester</option>
+              <option value="studiengang">studiengang</option>
+            </select>
+            <button type="submit">Submit</button>
+          </form>
+        </section>
+        <section id="dynamicSection" title="Semesterpläne">
+          <%  for (let gruppe in gruppierteGruppe) { %>
+                <h2> <%= gruppe %> </h2> 
+                <ul>
+                <% for (let plaene of gruppierteGruppe[gruppe]) { %>
+                  <li>
+                    <a href="/plan?id=<%=(plaene.studiengangId)%>">
+                      <%= plaene.name %>  <%=plaene.studiengangId %>
+                    </a>
+                    </li>
+                <% } %>
+                </ul>
+            <%} %>  
+        </section>
+      </main>
+
+      <%- include('aside.ejs') %>
+    </div>
+    <%- include('footer.ejs') %>
+  </body>
+</html>

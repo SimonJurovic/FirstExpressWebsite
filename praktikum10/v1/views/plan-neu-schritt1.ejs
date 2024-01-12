@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Studiengangwahl</title>
+    <link rel="stylesheet" href="/css/grid.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+
+  <body>
+    <%- include('header.ejs') %>
+    <main>
+      <fieldset>
+        <legend>Studiengangwahl</legend>
+        <form action="/waehleStudiengang" method="get">
+          <label>
+            Studiengangwahl
+            <select name="studiengang" id="studiengang">
+              <% for(elements of lehrangebotkopie) { %>
+                <option value="<%=elements.sname%>"><%=elements.name%></option>
+              <% } %>
+            </select>
+          </label>
+          <br />
+          <input type="submit" value="Weiter" />
+        </form>
+      </fieldset>
+    </main>
+
+    <%- include('aside.ejs') %>
+    <%- include('footer.ejs') %>
+  </body>
+</html>

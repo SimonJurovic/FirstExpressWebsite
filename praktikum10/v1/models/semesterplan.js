@@ -1,10 +1,11 @@
 class Semesterplan {
-    constructor(name, semester, studiengang) {
-      (this.id = counter++),
+    constructor(name, semester, jahr, studiengang, studiengangId, kurse) {
         (this.name = name),
         (this.semester = semester),
+        (this.jahr = jahr),
         (this.studiengang = studiengang),
-        (this.kurse = []);
+        (this.studiengangId = studiengangId),
+        (this.kurse = kurse);
     }
     addKurse(kurse) {
       this.kurse = this.kurse.concat(kurse);
@@ -32,6 +33,4 @@ class Semesterplan {
     }
   }
 
-module.exports = {
-    Semesterplan: Semesterplan
-}
+module.exports = Semesterplan;

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Semesterplan erstellen</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="/css/form.css" />
+    <link rel="stylesheet" href="/css/grid.css" />
+  </head>
+  <body>
+    <%- include('header.ejs') %>
+    <main>
+      <form
+        class="formsection2"
+        method="post"
+        action="/neu"
+      >
+        <fieldset>
+          <legend>Basisdaten</legend>
+          <label class="required">
+            Name:
+            <input
+              name="name"
+              type="text"
+              placeholder="Mein Semesterplan"
+              pattern="[A-Za-z0-9\-]+"
+              maxlength="150"
+              required
+            />
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Semester</legend>
+          <label>
+            Sommersemester<input
+              class="SemsterSelect"
+              name="semester"
+              value="sommersemester"
+              type="radio"
+              checked
+            />
+          </label>
+          <label>
+            Wintersemester<input
+              type="radio"
+              class="SemsterSelect"
+              name="semester"
+              value="wintersemester"
+            />
+          </label>
+          <br />
+          <label class="required">
+            Jahr
+            <input
+              name="jahr"
+              type="number"
+              min="1900"
+              max="2099"
+              value="2022"
+              required
+            />
+          </label>
+        </fieldset>
+
+        <fieldset>
+            
+          <legend>Kurse</legend>
+          <% for(elements of studiengang.kurse) { %>
+            <label>
+            <input
+              type="checkbox"
+              class="SemsterSelect"
+              name="kurseIds"
+              value="<%=elements.id%>"
+            />
+            <%=elements.name%> <br/>
+            </label>
+          <% } %>
+          <input type="hidden" id="studiengangid" name="studiengangid" value="<%=studiengang.sname %>">
+          <!--  <select name="kurse" multiple required size="3">
+                <option value="WEB-TECHNOLOGIEN">WEB-TECHNOLOGIEN</option>
+                <option value="PK2">PK2</option>
+                <option value="Mathe4">Mathe4</option>
+              </select>
+            </label>  -->
+        </fieldset>
+        <p>
+          <input class="SubmitButton" type="submit" />
+        </p>
+      </form>
+    </main>
+    <%- include('aside.ejs') %>
+    <%- include('footer.ejs') %>
+  </body>
+</html>

@@ -1,11 +1,12 @@
 const fetcher = require("../models/scheduleFetcher");
-const kurs = require("../models/kurs");
-const lehrperson = require("../models/lehrperson");
-const semesterplan = require("../models/semesterplan");
-const studiengang = require("../models/studiengang");
-const termin = require("../models/termin");
+const Kurs = require("../models/kurs");
+const Lehrperson = require("../models/lehrperson");
+const Semesterplan = require("../models/semesterplan");
+const Studiengang = require("../models/studiengang");
+const Termin = require("../models/termin");
 
 const lehrangebot = [];
+const semseterplaene = [];
 
 /**
  * Initialisiert die Daten der Anwendung, also die verfuegbaren Studiengaenge mit den
@@ -14,6 +15,7 @@ const lehrangebot = [];
  * mittels map-Funktion in die Datenstrukturen unserer Anwendung konvertiert. Schliesslich
  * wird jeder erhaltene Datensatz im lehrangebot-Array hinzugefuegt.
  */
+
 const initialisiereLehrangebot = () => {
   fetcher.fetchScheduleData().then((daten) => {
     daten
@@ -47,15 +49,74 @@ const initialisiereLehrangebot = () => {
   });
 };
 
+const erstelleSemesterplan = (name, semester, jahr,studiengang ,studiengangId, kurse) =>{
+  let semesterplan = new Semesterplan(name, semester,jahr,studiengang, studiengangId,kurse);
+  semseterplaene.push(semesterplan);
+};
+
+const ermittleSemesterplanZuId =(id) =>{
+  for(let elements of semseterplaene){
+    if(elements.studiengangId === id){
+      return elements;
+    }
+  }
+  return undefined;
+};
+
+const holePlaeneGruppiertNachSemester = () => {
+  return gruppiereNach(semseterplaene, "semester");
+};
+
+const holePlaeneGruppiertNachStudiengang = () => {
+  return gruppiereNach(semseterplaene, "studiengang");
+};
+
+const gruppiereNach = (array, eigenschaft) =>
+  array.reduce((ergebnis, element) => {
+    if (!ergebnis[element[eigenschaft]]) {
+      ergebnis[element[eigenschaft]] = [];
+    }
+    ergebnis[element[eigenschaft]].push(element);
+    return ergebnis;
+  }, {});
+
 // [TODO]
 // Weitere Funktionen aus der Aufgabenstellung implementieren
 
 let ermittleStudiengangZuId = function(id) {
-  for(let elements in lehrangebot) {
-    
+  for(let elements of lehrangebot) {
+    if(elements.id === id)
+      return elements;
   }
 }
 
+let ermittleKursZuStudiengangUndId = function(studiengangId, kursId) {
+  for(let elements of lehrangebot) {
+    if(elements.id === studiengangId && elements.kurs.id ===kursId) {
+      return elements;
+    }
+  }
+}
+
+let holeAlleStudiengaenge = function() {
+  let studiengaenge =[];
+  for(let elements of lehrangebot) {
+    studiengaenge.push(elements);
+  }
+  return studiengaenge;
+}
 // [TODO]
 // Schnittstelle des Moduls definieren: Lehrangebot-Array und Funktionen
 // von aussen zugreifbar machen
+
+module.exports = {
+  lehrangebot:lehrangebot,
+  semseterplaene: semseterplaene,
+  ermittleStudiengangZuId:ermittleStudiengangZuId,
+  ermittleKursZuStudiengangUndId:ermittleKursZuStudiengangUndId,
+  holeAlleStudiengaenge:holeAlleStudiengaenge,
+  initialisiereLehrangebot:initialisiereLehrangebot,
+  holePlaeneGruppiertNachSemester:holePlaeneGruppiertNachSemester,
+  holePlaeneGruppiertNachStudiengang:holePlaeneGruppiertNachStudiengang,
+  erstelleSemesterplan: erstelleSemesterplan
+}
