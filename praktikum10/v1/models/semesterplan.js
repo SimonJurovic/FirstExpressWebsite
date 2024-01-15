@@ -6,6 +6,7 @@ class Semesterplan {
         (this.studiengang = studiengang),
         (this.studiengangId = studiengangId),
         (this.kurse = kurse);
+        (this.studiengangname = studiengang.name)
     }
     addKurse(kurse) {
       this.kurse = this.kurse.concat(kurse);

@@ -9,6 +9,7 @@
   </head>
   <body>
     <%- include('header.ejs') %>
+    <%- include('nav.ejs') %>
     <main>
       <form
         class="formsection2"
@@ -36,7 +37,7 @@
             Sommersemester<input
               class="SemsterSelect"
               name="semester"
-              value="sommersemester"
+              value="Sommersemester"
               type="radio"
               checked
             />
@@ -46,7 +47,7 @@
               type="radio"
               class="SemsterSelect"
               name="semester"
-              value="wintersemester"
+              value="Wintersemester"
             />
           </label>
           <br />
@@ -66,7 +67,7 @@
         <fieldset>
             
           <legend>Kurse</legend>
-          <% for(elements of studiengang.kurse) { %>
+          <% for(elements of studiengang2.kurse) { %>
             <label>
             <input
               type="checkbox"
@@ -77,13 +78,6 @@
             <%=elements.name%> <br/>
             </label>
           <% } %>
-          <input type="hidden" id="studiengangid" name="studiengangid" value="<%=studiengang.sname %>">
-          <!--  <select name="kurse" multiple required size="3">
-                <option value="WEB-TECHNOLOGIEN">WEB-TECHNOLOGIEN</option>
-                <option value="PK2">PK2</option>
-                <option value="Mathe4">Mathe4</option>
-              </select>
-            </label>  -->
         </fieldset>
         <p>
           <input class="SubmitButton" type="submit" />

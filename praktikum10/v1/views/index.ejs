@@ -26,6 +26,9 @@
           </form>
         </section>
         <section id="dynamicSection" title="Semesterpläne">
+          <% if(Object.keys(gruppierteGruppe).length === 0) { %>
+            <h2 style="color: grey;"> Es wurde noch kein Semesterplan erstellt</h2>
+          <%}%>
           <%  for (let gruppe in gruppierteGruppe) { %>
                 <h2> <%= gruppe %> </h2> 
                 <ul>

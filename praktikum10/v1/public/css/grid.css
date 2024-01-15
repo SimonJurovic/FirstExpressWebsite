@@ -28,6 +28,7 @@ header {
       "fuß fuß fuß fuß";
     
   }
+  
   header{
     align-items: center;
   }
@@ -40,6 +41,7 @@ header {
   }
   nav {
     align-self: center;
+    padding: 23px 0px;
   }
 }
 @media screen and (max-width: 1024px) {
@@ -52,7 +54,6 @@ header {
   }
   
 }
-
 @media screen and (max-width: 768px) {
   body {
     grid-template-areas:

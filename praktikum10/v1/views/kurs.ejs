@@ -15,26 +15,25 @@
       <main>
         <section title="Basisinformationen">
           <h3>Basisinformationen zum Kurs</h3>
-          <p><span class="bold">Modul-ID</span> = 43064</p>
-          <p><span class="bold">Typ</span> = Vorlesung</p>
-          <p><span class="bold">Studiengang</span> = Praktische Informatik</p>
-          <p><span class="bold">Semester</span> = 3</p>
-          <p><span class="bold">Gruppenbuchstabe</span> = G</p>
+          <p><span class="bold">Modul-ID</span> = <%=kurs.modulId%></p>
+          <p><span class="bold">Typ</span> = <%=kurs.typ%></p>
+          <p><span class="bold">Studiengang</span> = <%=kurs.studiengang.name%></p>
+          <p><span class="bold">Semester</span> = <%=kurs.semester%></p>
+          <p><span class="bold">Gruppenbuchstabe</span> = <%=kurs.gruppenbuchstabe%></p>
         </section>
 
         <section title="Lehrperson">
           <h3>Lehrperson</h3>
-          <p><span class="bold">ID</span> = SJ</p>
-          <p><span class="bold">Nachname</span> = Jörgens</p>
-          <h3>Lehrperson</h3>
+          <p><span class="bold">ID</span> = <%=kurs.lehrperson.id%></p>
+          <p><span class="bold">Nachname</span> = <%=kurs.lehrperson.nachname%></p>
         </section>
 
         <section title="Termin">
           <h3>Termin</h3>
-          <p><span class="bold">Wochentag </span>= Montag</p>
-          <p><span class="bold">Beginn </span>= 5. Stunde</p>
-          <p><span class="bold">Dauer der Kurses </span>= 2 Stunden</p>
-          <p><span class="bold">Raum </span>= A.E.01</p>
+          <p><span class="bold">Wochentag </span>= <%=kurs.termin.wochentag%></p>
+          <p><span class="bold">Beginn </span>= <%=kurs.termin.beginn%></p>
+          <p><span class="bold">Dauer der Kurses </span>= <%=kurs.termin.dauer%></p>
+          <p><span class="bold">Raum </span>= <%=kurs.termin.raum%></p>
         </section>
       </main>
       <%- include('aside.ejs') %>

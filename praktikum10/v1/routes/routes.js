@@ -9,9 +9,7 @@ const Termin = require("../models/termin");
 
 const router = express.Router();
 
-persistence.erstelleSemesterplan("name", "Semester 23/24", 2004, "studiengang", "ID1", [new Kurs("moduleId", "Kursname","V", "t", 3,"Gruppenbuchstabe", new Lehrperson("lecturerId", "test"), new Termin("9:00",90,"Montag", "t"))]);
-persistence.erstelleSemesterplan("name2", "Semester 23/24", 2004, "studiengang", "ID2", [new Kurs("moduleId", "Kursname","V", "t", 3,"Gruppenbuchstabe", new Lehrperson("lecturerId", "test"), new Termin("9:00",90,"Dienstag", "t"))]);
-persistence.erstelleSemesterplan("name3", "Semester 23/24", 2004, "studiengang", "ID3", [new Kurs("moduleId", "Kursname","V", "t", 3,"Gruppenbuchstabe", new Lehrperson("lecturerId", "test"), new Termin("9:00",90,"Mittwoch", "t"))]);
+let studiengang;
 
 router.get("/index", (req, res) => {
   const gruppierung = req.query.gruppierung;
@@ -39,11 +37,11 @@ router.get("/plan", (req, res, next) => {
       semesterplan = elements;
     }
   }
-  if(semesterplan===undefined){
+  /* if(semesterplan===undefined){
       res.redirect("/error");
-  }
-
-  res.render("plan" ,{semesterplan}); 
+  } */
+  let studiengangIduebergabe = semesterplan.studiengang.id;
+  res.render("plan" ,{semesterplan, studiengangIduebergabe}); 
 
 });
 
@@ -53,20 +51,26 @@ router.get("/kurs", (req, res, next) => {
   // ID anzeigen (ID als Anfrage/Query-Parameter gegeben)
   const studiengangId = req.query.sid;
   const kursId = req.query.kid;
-
+  console.log(studiengangId);
+  console.log(kursId);
   let kurs;
-  for(let elements of persistence.lehrangebot){
+  let LEHRANGEBOT = persistence.lehrangebot;
+  for(let elements of LEHRANGEBOT){
     if(elements.id === studiengangId){
-      for(let element of elements){
+      for(let element of elements.kurse){
         if(element.id === kursId){
           kurs = element;
+          break;
         }
+      }
+      if(kurs) {
+        break;
       }
     }
   }
-  if(kurs ===undefined){
+  if(!kurs){
     res.redirect("/error");
-  }
+  } 
   res.render("kurs", {kurs});
 });
 
@@ -87,11 +91,10 @@ router.post("/waehleStudiengang", (req, res) => {
   // dazu Schritt 2 anzeigen (z.B. nur die Kurse, die auch
   // zum gewaehlten Studiengang gehoeren)
 
-  let studiengangId = req.query.studiengang;
-  console.log(studiengangId);
-  let studiengang = persistence.lehrangebot.find((element) => element.sname === studiengangId);
- 
-  res.render("plan-neu-schritt2", {studiengang});
+  let studiengangId = req.body.studiengang;
+  studiengang =studiengangId;
+  let studiengang2 = persistence.lehrangebot.find((element) => element.id === studiengangId);
+  res.render("plan-neu-schritt2", {studiengang2});
 });
 
 router.post("/neu", (req, res) => {
@@ -100,33 +103,37 @@ router.post("/neu", (req, res) => {
   // den eingebenen Daten erstellt und ueber das Persistenz-
   // Modul sichern. Danach auf die Seite "Liste der Semesterplaene"
   // umleiten.
-  console.log(req.body);
-  const{name, semester, jahr,studiengangid,kurseIds} = req.body;
-  let studiengang;
+
+  const{name, semester, jahr,kurseIds} = req.body;
   for(let elements of persistence.lehrangebot){
-    if(elements.id === studiengangid){
+    if(elements.id === studiengang){
       studiengang = elements;
     }
   }
   let kurse2 = []
-  /* for(let elements of persistence.lehrangebot.kurse){
-    if(elements.id === kurseIds){
+  //console.log(studiengang);
+  let ausgewaehlterStudiengang = persistence.lehrangebot.find((element) => element.id === studiengang.id);
+  //console.log(ausgewaehlterStudiengang.kurse);
+  for(let elements of ausgewaehlterStudiengang.kurse){
+    if(kurseIds.includes(elements.id)){
       kurse2.push(elements);
     }
-  }  */
-  console.log(persistence.lehrangebot.studiengang.kurse);
-  const newSemesterplan = persistence.erstelleSemesterplan(name,semester,jahr,studiengang,studiengangid,kures2)
+  }  
+  const newSemesterplan = persistence.erstelleSemesterplan(name,semester,jahr,studiengang,studiengang.id,kurse2)
+  res.redirect("/index");
+
+  studiengang = undefined;
 });
 
 router.get("/", (req, res) => {
   res.redirect("/index");
 });
 
-router.use((req, res) => {
+/* router.use((req, res) => {
   res.status(404).render('error.ejs', { message: 'Page not found' });
 });
 router.use("/error",(req, res) => {
   res.status(404).render('error.ejs', { message: 'Page not found' });
-});
+}); */
 
 module.exports = router;

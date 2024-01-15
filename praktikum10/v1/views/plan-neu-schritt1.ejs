@@ -9,15 +9,16 @@
 
   <body>
     <%- include('header.ejs') %>
+    <%- include('nav.ejs') %>
     <main>
       <fieldset>
         <legend>Studiengangwahl</legend>
-        <form action="/waehleStudiengang" method="get">
+        <form action="/waehleStudiengang" method="post">
           <label>
             Studiengangwahl
             <select name="studiengang" id="studiengang">
               <% for(elements of lehrangebotkopie) { %>
-                <option value="<%=elements.sname%>"><%=elements.name%></option>
+                <option value="<%=elements.id%>"><%=elements.name%></option>
               <% } %>
             </select>
           </label>

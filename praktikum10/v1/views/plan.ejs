@@ -13,8 +13,8 @@
       <section title="Informationen zum Semester">
         <h3>Informationen zum Semester</h3>
         <ul>
-          <li>Name meines <%=semesterplan.name %></li>
-          <li>Studiengang: <%=semesterplan.studiengang %></li>
+          <li>Name meines Semesterplans: <%=semesterplan.name %></li>
+          <li>Studiengang: <%=semesterplan.studiengang.name %></li>
           <li>Semester: <%=semesterplan.semester %></li>
         </ul>
       </section>
@@ -26,15 +26,15 @@
             <tr>
               <th>Name</th>
               <th>Wochentag</th>
-              <th>Stunden im Stundenplan</th>
+              <th>Timeslot (duration)</th>
             </tr>
           </thead>
           <tbody>
             <% for(let elements of semesterplan.kurse) { %>
                 <tr>
-                    <td><a href="/kurs/sid=<%=(elements.studiengang.id)%>&kid=<%=(elements.id)%>"> <%=elements.name%> </a></td>
+                    <td><a href="/kurs?sid=<%=studiengangIduebergabe%>&kid=<%=elements.id%>"> <%=elements.name%> </a></td>
                     <td><%=elements.termin.wochentag%> </td>
-                    <td><%=elements.termin.beginn%> dauer:(<%=elements.termin.dauer%>min) </td>
+                    <td><%=elements.termin.beginn%> (<%=elements.termin.dauer%>) </td>
                 </tr>
             <% }%>
           </tbody>

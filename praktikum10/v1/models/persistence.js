@@ -68,7 +68,8 @@ const holePlaeneGruppiertNachSemester = () => {
 };
 
 const holePlaeneGruppiertNachStudiengang = () => {
-  return gruppiereNach(semseterplaene, "studiengang");
+  console.log((semseterplaene));
+  return gruppiereNach(semseterplaene, "studiengangname");
 };
 
 const gruppiereNach = (array, eigenschaft) =>
